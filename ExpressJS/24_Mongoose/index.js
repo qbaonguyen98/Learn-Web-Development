@@ -17,6 +17,10 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var csrf = require('csurf');
 
+// SETUP database 
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URL);
+
 var userRoutes = require('./routes/users.route');
 var authRoutes = require('./routes/auth.route');
 var productRoutes = require('./routes/products.route');
