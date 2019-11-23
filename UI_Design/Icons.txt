@@ -1,0 +1,12 @@
+Có 2 loại icons:	
+
+- font icon:		Font awesome
+			material design iconic font
+			Google "icon fonts"
+			Google "how to enter unicode character on Windows"
+
+
+- SVG (image) icon:	ionicons.com
+			flaticon.com
+			materialdesignicons.com/
+			Google "svg icons"

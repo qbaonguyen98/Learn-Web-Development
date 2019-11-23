@@ -1,0 +1,168 @@
+<!--
+    Bài này có gì hot:
+        - chuyển onclick attribute thành code trong JS, giúp tăng tính độc lập về code giữa HTML và JS >> dễ maintain
+        - thuộc tính placeholder trong tag <input>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Listener</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    
+    <input id="newTask" type="text">
+    <button id="addButton">Add Task</button>                <!--không dùng onclick trong <button> -->
+    <ol id="list" style="list-style-type: square">
+        <!-- <li>Learn HTML</li>
+        <li>Read Z-Wave document</li> -->
+    </ol>
+    <!------------------------------------------------------------------------------------------------------->
+    <h1>Exercise 1: Reset a form</h1>
+    <form id="loginForm">
+        <div>
+          <label>Username</label>
+          <input type="text" name="username"/>  
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="password" name="password"/>  
+        </div>
+        
+        <div>
+          <button type="submit">Submit</button>
+          <button id="clearButton" type="button">Clear</button>
+        </div>
+    </form>
+    <!------------------------------------------------------------------------------------------------------->
+    <h1>Exercise 2: Basic search engine - 'keyup' HTML event</h1>
+    <input type="text" id="searchInput" placeholder="Search by phone number..." />
+    <ul id="userList">
+
+    </ul>
+
+    <script>
+        var toDoList = [
+            'Learn HTML',   
+            'Read Z-Wave document'
+        ];
+        // var button = ' <button onclick=\"removeTask(event)\">Del</button>';
+
+        render();
+
+        var addButton = document.getElementById('addButton');       // chuyển onclick vào JS
+
+        // addButton.onclick = addNewTask;          // dòng này có cách khác hay hơn: là dùng Event Listener
+        addButton.addEventListener('click', addNewTask);    // => VẬY CÓ LỢI CHỖ NÀO ?
+        // Dùng Event Listener cho phép tạo nhiều handler ứng với nhiều sự kiện khác nhau: 
+        //addButton.addEventListener('click', alert);
+        addButton.addEventListener('mouseover', notify);
+
+        function addNewTask(){
+            // get input and add to toDoList
+            var newTask = document.getElementById('newTask').value;
+            if (newTask === ''){
+                alert("Empty Task !");
+            } else {
+                toDoList.push(newTask);
+            }
+            // re-render
+            render();
+            // clear input
+            document.getElementById('newTask').value = '';
+        }
+
+        function notify(){
+            console.log('Event listener example');
+        }
+
+        // function removeTask(event){
+        //     var removedTask = event.target.parentElement.textContent;
+        //     for (var task of toDoList){
+        //         if (task == removedTask.slice(0, removedTask.indexOf(' Del'))){
+        //             toDoList.splice(toDoList.indexOf(task), 1);
+        //         }
+        //     }
+        //     render();
+        // }
+        
+        function render(){
+            var content = toDoList.map(function(item){
+                return '<li>' + item + '</li>';
+            });
+            document.getElementById('list').innerHTML = content.join('');   // phải đưa về string
+        }
+
+        //  EXERCISE 1  ////////////////////////////////////////////////////////////////
+        clearForm();
+
+        var clearButton = document.getElementById('clearButton');
+        clearButton.addEventListener('click', clearForm);
+
+        function clearForm(){
+            document.getElementById('loginForm').reset();
+        }
+        //  EXERCISE 2  ////////////////////////////////////////////////////////////////
+        var users = [
+            { 
+                name: 'Thinh', 
+                phone: '070123123'
+            },
+            {
+                name: 'Hung',
+                phone: '080456456'
+            },
+            {
+                name: 'Hoang',
+                phone: '090123123'
+            }
+        ];
+        var userList = document.getElementById('userList');
+        var searchInput = document.getElementById('searchInput');
+
+        function render2(users) {
+            var content = users.map(function(user) {
+            return '<li>' + user.name + ' - ' + user.phone + '</li>';
+            });
+            userList.innerHTML = content.join('');
+        }
+
+        render2(users);
+
+        searchInput.addEventListener('keyup', function(event) {
+            // sự kiện 'keyup' chỉ xảy ra khi input bị mất focus
+            // sử dụng sự kiện keyup để tìm kiếm người dùng có số điện thoại khớp với nội dung tìm kiếm.
+            // Gợi ý: 
+            // - biến value dưới đây là giá trị của input tại thời điểm gõ phím
+            // - sử dụng array.filter và string.indexOf để lọc users array, trả về những phần tử có số điện thoại
+            // chứa string lưu trong biến `value`
+            // Sử dụng Chrome Developer Tools để xem giá trị hiển thị ra sau mỗi lần gõ
+            var value = searchInput.value;
+            var keywordLength = value.length;
+            if (value !== '') {
+                var suggestedUsers = [];
+                for (var user of users){
+                    var savedPhone = user.phone;
+                    for (i=0; i < (savedPhone.length - keywordLength); i++){
+                        var partOfSavedPhone = savedPhone.slice(i, (i+keywordLength));
+                        console.log(partOfSavedPhone);
+                        if (value === partOfSavedPhone){
+                            suggestedUsers.push({name: user.name, phone: user.phone});
+                            render2(suggestedUsers);
+                            return;
+                        } else {
+                            render2([]);
+                            break;
+                        }
+                    }
+                }
+            } else {
+                render2(users);
+            }
+        });
+    </script>
+</body>
+</html>

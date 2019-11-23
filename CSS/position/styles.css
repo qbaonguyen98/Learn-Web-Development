@@ -1,0 +1,77 @@
+/*
+    position: static* | relative | fixed | absolute | sticky
+*/
+/*
+    4 thuộc tính dịch chuyển vị trí của element:
+        - top: 10px     (có thể truyền số âm)
+        - bottom:
+        - right:
+        - left:
+    
+    Dựa trên hệ quy chiếu x-y với x hướng qua phải, và y hướng xuống
+*/
+.container-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    color: #fff;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+/***********************/
+.relative {
+    position: relative;             /* khi có relative, green box bị dịch tương đối so với VỊ TRÍ BAN ĐẦU, vùng ban đầu nó chiếm
+                                    được bảo toàn */
+    top: 20px;     /*left ý là khoảng cách bị dịch so với top edge của block chứa nó  => dịch xuống */
+}
+
+.fixed {
+    position: fixed;        /* dịch chuyển tương đối so với CỬA SỔ TRÌNH DUYỆT*/
+    right: 10px;    /* cách so với cạnh phải cửa sổ 10px */ 
+    bottom: 10px;                            
+    /*
+        ứng dụng: khi cuộn thanh menu vẫn hiện trên top cửa sổ, nút "scroll to top"
+    */
+}
+
+/************************/
+.container-2 {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(27, 101, 145);
+    position: relative;
+}
+
+.inner-container {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(43, 138, 75);
+}
+
+.child {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    position: absolute;    /*dịch chuyển tương đối so với element cha, ông, cố... của nó có position là relative
+                            chg trình sẽ dò các th cha của nó xem th nào có position là relative,
+                            nếu không có thì so với body*/
+    bottom: 50px;
+    right: 50px;
+
+    /*thử chuyển postion: relative; qua cho thằng inner-container để kiểm chứng*/
+}

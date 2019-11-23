@@ -1,0 +1,1 @@
+canvas: là "khung tranh" trong UI design, là kích thước của toàn bộ giao diện, vd: 1920x1080

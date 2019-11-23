@@ -1,0 +1,78 @@
+<!--
+    Bài này có gì hot ?
+        - cách dùng sessionStorage, phân biệt với localStorage
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sessionStorage</title>
+</head>
+<body>
+    <h2>Khác gì với localStorage ? => khi đóng tab mở lại sessionStorage sẽ mất, localStorage vẫn còn</h2>
+    <h3>Sử dụng trong trường hợp nào ? Ví dụ khi user đang gõ task mới để add vào To Do List, 
+        và lỡ tay nhấn reload => yêu cầu đặt ra là nội dung đã nhập vẫn còn trong textbox
+    </h3>
+    <hr>
+    <div>
+        <h1>To Do List</h1>
+        <input type="text" id="newTask" placeholder="Add new task ...">
+        <button id="addButton">Add</button>
+        <ul id="toDoList"></ul>
+    </div>
+
+
+    <script>
+        // get data from localStorage
+        var storageKey = 'toDoList';
+        var dataString = localStorage.getItem(storageKey);
+        if (dataString !== null) {
+            var toDoList = JSON.parse(dataString)
+        } else {
+            var toDoList = [];
+        }
+
+        // get elements
+        var input = document.getElementById('newTask');
+        var addButton = document.getElementById('addButton');
+
+        // first render
+        render(toDoList);
+        
+        // get sessionStorage data 
+        input.value = sessionStorage.getItem('draftTask');
+
+        // add event listeners
+        input.addEventListener('keyup', onChange);
+        addButton.addEventListener('click', addNewTask);
+
+        // define callback functions
+        function onChange(){
+            sessionStorage.setItem('draftTask', input.value);
+        }
+
+        function addNewTask() {
+            // get value of input
+            var newTask = input.value;
+            // insert to list
+            toDoList.push(newTask);
+            // re-render
+            render(toDoList);
+            // save to localStorage
+            localStorage.setItem(storageKey, JSON.stringify(toDoList));
+            // clear input
+            input.value = '';
+        }
+
+        // render function
+        function render(toDoList){
+            var content = toDoList.map(function(item){
+                return '<li>' + item + '</li>';
+            })
+            document.getElementById('toDoList').innerHTML = content.join('');
+        }
+    </script>
+</body>
+</html>

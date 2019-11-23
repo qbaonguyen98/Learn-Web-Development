@@ -1,0 +1,9 @@
+Trước tiên định nghĩa vài thứ:
+	
+	- Callstack là gì: khi hàm được thực thi (được gọi) thì chương trình push hàm đó vào Callstack
+	
+Cách đặt breakpoint trong browser: trong tab Sources >>> click vào line-number
+
+Cũng trong tab Sources sẽ có chỗ để debug: start, step over...
+
+Trong khi chương trình dừng (tại breakpoint), nhấn Esc để mở console >>> kiểm tra lỗi

@@ -1,0 +1,84 @@
+<!--
+    Bài này có gì hot ?
+        - các dùng event và các methods, properties của nó
+        - cách dùng data attribute của html 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eventTarget_dataAttribute</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <div>
+        <input type="text" id="addNewTask" placeholder="Add new task ...">
+        <button id="addBtn">Add</button>
+        <ul id="toDoList"></ul>
+    </div>
+
+    <script>
+        // get elements
+        var addBtn = document.getElementById('addBtn');
+        var input = document.getElementById('addNewTask');
+        var htmlList = document.getElementById('toDoList');
+
+        // add event listener
+        addBtn.addEventListener('click', addNewTask);
+        input.addEventListener('keyup', onType);
+        htmlList.addEventListener('click', listClicked);                // click event to delete task
+
+
+        // get data from localStorage and sessionStorage
+        var storageKey = 'toDoList';
+        var dataString = localStorage.getItem(storageKey);
+        if (dataString){
+            var toDoList = JSON.parse(dataString);
+        } else {
+            var toDoList = [];
+        }
+        input.value = sessionStorage.getItem('draft');
+
+        // first render
+        render(toDoList);
+        /////////////////////////////////////////////////////////////////////////////////////
+        function listClicked(event){
+            var elementClicked = event.target;
+            if (elementClicked.textContent == 'delete'){
+                var indexOfdeletedItem = elementClicked.dataset.id;                 // utilize data attribute 
+                toDoList.splice(indexOfdeletedItem, 1);                 // delete the item
+                // re-render
+                render(toDoList);
+            }
+        }
+
+        function onType(){
+            sessionStorage.setItem('draft', input.value);
+        }
+
+        function addNewTask(){
+            // get value of input from sessionStorage
+            var newTask = sessionStorage.getItem('draft');
+            // add to list
+            toDoList.push(newTask);
+            // save in localStorage
+            localStorage.setItem(storageKey, JSON.stringify(toDoList));
+            // clear input
+            input.value = '';
+            // clear sessionStorage
+            sessionStorage.removeItem('draft');
+            // re-render
+            render(toDoList);
+        }
+
+        function render(list){                                  // in this function, we use data-attribute
+            var content = list.map(function(item, index){
+                return '<li>' + item + ' ' + '<button data-id="' + index + '">delete</button></li>';
+            });
+            htmlList.innerHTML = content.join('');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+- Nói đơn giản là 1 hàm gọi callback là 1 hàm khác, rồi hàm callback đó lại gọi 1 hàm callback khác,... cứ như vậy
+
+=> tạo thành 1 đoạn code kiểu "nested"
+
+Ngoài ra còn có những kiểu "nested" hay gặp như "nested if", "nested for" (giảm tốc độ app kinh khủng)
+
+*** TÓM LẠI: khi code cần cố gắng tránh kiểu code như thế này ***

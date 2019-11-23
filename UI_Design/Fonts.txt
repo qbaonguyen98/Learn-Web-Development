@@ -1,0 +1,11 @@
+có 2 họ font chính:	- Serif
+			- Sans-serif
+
+ngoài ra còn phân biệt 2 loại font là: 
+	
+	- unicode và non-unicode (loại này khi dùng tiếng việt sẽ lỗi, tuy nhiên nó nhẹ hơn loại kia)
+	
+trang download font: bên file Useful_Links.txt, trong đó trang của google cho phép filter các loại font mong muốn
+
+
+

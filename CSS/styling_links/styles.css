@@ -1,0 +1,40 @@
+/*
+    Link states:    - a:link        (normal)
+                    - a:visited
+                    - a:hover       (mouse over)
+                    - a:active
+*/
+/*
+    HẠN CHÓT DÙNG SELECTOR BY HTML TAG: NÊN DÙNG CLASS
+*/
+
+.default-link:link {
+    font-family: sans-serif;
+    text-decoration: none;              /* bỏ gạch chân */
+    font-size: 200%;
+    color: darkblue;
+}
+
+.default-link:visited {
+    color: darkblue;
+}
+
+.default-link:hover {
+    text-decoration: underline;
+}
+
+.default-link:active {
+    color: red;
+}
+
+.button-link {
+    color: #FFF;
+    background: #1653C0;
+    padding: 10px;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.button-link:hover {
+    background: #032156;
+}

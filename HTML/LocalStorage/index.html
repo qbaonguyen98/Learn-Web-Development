@@ -1,0 +1,79 @@
+<!--
+    Bài này có gì hot?
+        - sử dụng local storage để giải quyết vấn đề như trong bài To Do List: khi reload lại trang thì
+        new task bị mất đi (lý do là vì chúng được lưu vô 1 biến local nằm trong callback function trong JS)
+        - cách sử dụng một số methods của localObject:
+            + setItem(key, value)
+            + getItem(key)
+            + removeItem(key)
+
+            *** tất cả các giá trị lưu vào trong localStorage đều được convert sang string
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Storage</title>
+</head>
+<body>
+    <h1 style="color: darkblue">localStorage là 1 JS object trên browser</h1>
+    <div>
+        <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">TO DO LIST</h2>
+        <input id="newTask" type="text" placeholder="Enter new task ...">
+        <button id="addButton">Add</button>
+        <ul id="toDoList"></ul>
+    </div>
+
+    <script>
+        var storageKey = 'toDoList';
+        var dataString = localStorage.getItem(storageKey);
+        var toDoList;
+
+        if (dataString){
+            toDoList = JSON.parse(dataString);
+        } else {
+            toDoList = [];
+        }
+        render(toDoList);
+
+        var addButton = document.getElementById('addButton');
+        addButton.addEventListener('click', addTask);
+
+
+        function onDone(event){
+            var doneTask = event.target.parentElement.textContent;
+            for (var task of toDoList){
+                if (task == doneTask.slice(0, doneTask.indexOf(' Done'))){
+                    toDoList.splice(toDoList.indexOf(task), 1);
+                    break;
+                }
+            }
+            // re-render
+            render(toDoList);
+            // store data to localStorage
+            localStorage.setItem('toDoList', JSON.stringify(toDoList));
+        }
+
+        function addTask(){
+            // get the input
+            var newTask = document.getElementById('newTask');
+            toDoList.push(newTask.value);
+            // re-render
+            render(toDoList);
+            // clear input
+            newTask.value = '';
+            // store data to localStorage
+            localStorage.setItem('toDoList', JSON.stringify(toDoList));
+        }
+
+        function render(list){
+            var listContent = list.map(function(item){
+                return '<li>' + item + '<button class="delButton" onclick="onDone(event)"> Done</button>' + '</li>';
+            });
+            document.getElementById('toDoList').innerHTML = listContent.join('');
+        };
+    </script>
+</body>
+</html>

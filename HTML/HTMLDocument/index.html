@@ -1,0 +1,65 @@
+<!--
+    Bài này có gì hot:
+        - sử dụng các method của HTMLDocument: getElementsByClassName(), getElementById(), getElementsByTagName(), querySelector(), querySelectorAll()
+        - cách sử dụng property innerHTML của HTMLElement
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLDocument</title>
+</head>
+<body>
+    <h1 class="hello">Hello Word</h1>
+    <div class="content">
+        <p id="comment">Today is a good day</p>
+        <div><img src="./landscape.jpg" alt="landscape"></div>
+        <p>
+            <button onclick="changeHeading()">Click here</button>     <!--để onclick trong html thì khó maintain code
+                                                                      ngta cũng tránh để JS trong HTML-->
+            to change the phrase "Hello World"
+        </p>
+        <p class="suggest" style="color: green;">
+            Let's go for a picnic!
+        </p>
+        <p class="suggest" style="color: purple;">
+            Why don't we go to cinema?
+        </p>
+        <p>
+            <button onclick="removeParagraph()">Click here</button>
+            to remove paragraphs
+        </p>
+        <p>
+            <button onclick="querySelectorExample()">Click here</button>
+            to remove the 1st suggestion
+        </p>
+        <p>
+            <button onclick="querySelectorAllExample()">Click here</button>
+            to remove all suggestions
+        </p>
+    </div>
+
+    <script>
+        function changeHeading(){
+            document.getElementsByClassName('hello')[0].innerHTML = 'Hey Guys';
+        }
+        function removeParagraph(){
+            var paragraphs = document.getElementsByTagName('p');
+            for (var paragraph of paragraphs){
+                paragraph.innerHTML = '';
+            }
+        }
+        function querySelectorExample(){        // return the first matched element
+            document.querySelector(".suggest").innerHTML = '';
+        }
+        function querySelectorAllExample(){        // return list of matched elements = getElementsByClassName
+            var suggestions = document.querySelectorAll(".suggest");
+            for (var suggest of suggestions){
+                suggest.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>

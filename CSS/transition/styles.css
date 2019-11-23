@@ -1,0 +1,62 @@
+.button {
+    text-decoration: none;
+    padding: 8px 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    display: inline-block;  /* dịch xuống so với bth xíu */
+    background-color: #eee;
+    /* transition */
+    /*
+        SYNTAX: transition: property time;
+    */
+    transition: all 0.3s;
+    /*  transition-timing-function:     https://easings.net/en
+    */ 
+}
+
+.button:hover {
+    color: whitesmoke;
+    background-color: #222;
+}
+
+/* DEMO transform + transition */
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.white { color: whitesmoke; }
+
+.album-card {
+    height: 150px;
+    width: 150px;
+    background-image: url(./x_cover.png);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.album-card .overlay {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.album-card:hover .overlay{
+    opacity: 1;
+}
+
+.album-card .overlay .play-icon {
+    transform: scale(0.5);
+    transition: all 0.4s;
+}
+
+.album-card:hover .overlay .play-icon {
+    transform: scale(1);
+}
+/*
+    Giải thích:     ban đầu lớp overlay (chứa icon bị ẩn đi, và nó đã bị scale xuống 1/2),
+                    khi hover, nó hiện ra
+                    vì lúc đó vẫn hover => icon bị scale lên 1 
+
+*/

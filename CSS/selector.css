@@ -1,0 +1,21 @@
+/*  Các cách đặt selector:
+
+1) select by HTML tag name:                 https://jsfiddle.net/reusnguyen1199/grbxphos/4/
+
+2) select by id (not recommended):          https://jsfiddle.net/reusnguyen1199/6ewqk4rs/3/
+
+3) select by class name:                    https://jsfiddle.net/reusnguyen1199/3nq81gym/2/
+    (highly recommended)
+
+4) select multiple elements:                https://jsfiddle.net/reusnguyen1199/g2u4b9xp/9/
+
+5) attribute selector:                      https://jsfiddle.net/reusnguyen1199/t21369un/14/
+
+    ví dụ: a[target] >>> lấy những <a> element mà được khai báo attribute target
+
+    ví dụ 2: input[type="text"]
+
+*/
+
+/* Link tổng hợp :  https://gist.github.com/magicznyleszek/809a69dd05e1d5f12d01     */
+

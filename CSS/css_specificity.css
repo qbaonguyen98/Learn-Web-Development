@@ -1,0 +1,23 @@
+/*
+    Specificity là độ cụ thể của 1 selector trong CSS
+    
+    - ví dụ có 2 selector cùng tác động đến 1 element, thì selector nào có specificity cao hơn sẽ được áp dụng
+
+    - nếu specificity bằng nhau thì selector xuất hiện sau sẽ được áp dụng
+
+    - specificity đặc trưng bởi 4 thông số (nhìn tương tự như 4 bit): 
+
+        trong đó bit có trọng số cao hơn mà lớn hơn thì specifity sẽ lớn hơn: (0, 0, 1, 0) > (0, 0, 0, 9)
+*/
+
+/*
+    link giải thích chi tiết:   https://cssspecificity.com/
+
+    link tính specificity:      https://specificity.keegan.st/
+*/
+
+/*
+    cách tốt nhất khi code:
+                                - CSS thì select by classes
+                                - JS thì select by id
+*/

@@ -1,0 +1,24 @@
+/*  CSS combinators:
+
+    - descendant selector           (space)     : con, cháu, chắt...
+    - child selector                (>)         : con
+    - adjacent sibling selector     (+)         : 1 thằng em    
+    - general sibling selector      (~)         : tất cả thằng em
+
+*/
+
+.list-1 .item {   /* tìm trong list 1 những th con, cháu.. của nó mà có class là item */
+    border: 1px solid #999;
+}
+
+.list-2 > .item {   /* tìm trong list 2 những th con (K có cháu) của nó mà có class là item */
+    border: 1px solid #999;
+}
+
+.list-1 .item-1 + .item {   
+    color: red;   /* tìm trong list 1 th có class là item-1 và chọn 1 th anh em sau nó*/
+}
+
+.list-3 .item-1 ~ .item {   
+    color: orangered;   /* tìm trong list 3 th có class là item-1 và chọn TẤT CẢ th anh em sau nó*/
+}

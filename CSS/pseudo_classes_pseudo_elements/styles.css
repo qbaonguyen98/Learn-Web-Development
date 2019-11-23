@@ -1,0 +1,75 @@
+body {
+    background-color: #262626;
+    color: white;
+}
+/*
+    pseudo classes cho link: BẮT BUỘC tuân theo đúng thứ tự này
+*/
+
+/* unvisited link */
+.default-link:link {
+    color: #FF0000;
+    text-decoration: none;
+}
+  
+/* visited link */
+.default-link:visited {
+    color: #00FF00;
+}
+  
+/* mouse over link */
+.default-link:hover {
+    color: #FF00FF;
+}
+  
+/* selected link */
+.default-link:active {
+    color: #ccad8f;
+} 
+
+.tada {
+    display: none;
+    background-color: darkcyan;
+    padding: 10px;
+}
+
+.special-thing:hover .tada {
+    display: block;    
+}
+/****************************************************************************************************/
+/*
+    pseudo-element có thể dùng để: 
+        
+        - style cho chữ đầu tiên, dòng đầu tiên của 1 element
+        - insert nội dung mới vào trước hoặc sau nội dung của 1 element
+*/
+.color-first-line::first-line {             /*  ::first-line    dùng để style có line đầu tiên của 1 BLOCK element*/
+    color: peru;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.color-first-letter::first-letter {             /*  ::first-letter    dùng để style có letter đầu tiên của 1 BLOCK element*/
+    color: royalblue;
+    font-size: 200%;
+}
+    /* ::before and ::after */
+
+.image-prefix::before {
+    content: url(./pikachu.gif);
+}
+
+.image-postfix::after {
+    content: url(./pikachu.gif);
+}
+    /* ::selection  */          /* style khi user chọn nội dung nào đó (vd như kéo 1 đoạn để copy) */
+                                /* NOTES: đối với Firefox, phải dùng -moz-selection */
+
+::-moz-selection { /* Code for Firefox */
+    color: rgb(255, 255, 255);
+    background: rgb(11, 171, 199);
+}
+  
+::selection {
+    color: rgb(255, 255, 255);
+    background: rgb(11, 171, 199);
+}

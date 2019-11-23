@@ -1,0 +1,3 @@
+Padding (Inner spacing): thường là khoảng cách từ border đến content bên trong
+
+Margin (Outer spacing)

@@ -1,0 +1,5 @@
+css (internal or external) nên để cuối cùng trong <head>
+
+external css is HIGHLY RECOMMENDED:	(for reusing and maintaining)
+
+to use external css in html:	use <link> tag >>> <link rel="stylesheet" href="./styles.css">

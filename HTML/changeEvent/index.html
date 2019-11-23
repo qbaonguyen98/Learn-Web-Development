@@ -1,0 +1,65 @@
+<!--
+    Bài này có gì hot ?
+        - sử dụng change Event (fired khi user thay đổi value của input)
+        - cách tạo HTML table
+        - cách tạo dropdown select (từ tag select và option)
+        - sử dụng hàm parseInt để convert string => int
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>change Event</title>
+</head>
+<body>
+    <div>
+        <span>Age: </span>                 
+
+        <select id="ageFilter">                         <!--Filter-->
+            <option>21</option>
+            <option>20</option>
+            <option>19</option>
+            <option>18</option>
+        </select>
+        
+        <table id="studentTable"></table>
+    </div>
+    <script>
+        var students = [
+            {name: 'Reus', age: 21},
+            {name: 'Peter', age: 22},
+            {name: 'Tom', age: 20},
+            {name: 'Smith', age: 18},
+            {name: 'Mats', age: 19}
+        ];
+
+        render(students);
+
+        var ageFilter = document.getElementById('ageFilter');
+        ageFilter.addEventListener('change', onAgeFilterChange);
+
+        function onAgeFilterChange(){
+            // get current value of the select
+            var selectedAge = parseInt(ageFilter.value);
+            // filter the student list
+            var filteredStudents = students.filter(function(student){
+                return student.age === selectedAge;
+            });
+            // re render
+            render(filteredStudents);
+        }
+
+        function render(students) {
+            var studentTable = document.getElementById('studentTable');
+            var tableHeader = '<tr><th>Name</th><th>Age</th></tr>';
+            var tableContent = students.map(function(student){
+                return '<tr><td>' + student.name + '</td>' + '<td>' + student.age + '</td></tr>';
+            });
+            studentTable.innerHTML = tableHeader.concat(tableContent.join(''));
+        }
+
+    </script>
+</body>
+</html>

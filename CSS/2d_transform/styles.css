@@ -1,0 +1,36 @@
+/*
+    link xem hiệu ứng mẫu:  https://tympanus.net/codrops/
+*/
+
+/*
+    2 property "transform" và "transition" được kết hợp trong CSS để tạo nên các hiệu ứng
+*/
+/*  bài này chỉ cover transform property"   */
+
+/*
+    các values thường gặp của transition:
+        - translate: dịch đi
+        - rotate:
+        - scale: phóng to/thu nhỏ
+        - skew: làm biến dạng, méo
+        - matrix: 
+*/
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: darkcyan;
+}
+
+.box-1:hover {
+    transform: translate(30px, 30px);   /*theo hệ quy chiếu x,y của browser*/
+}
+
+.box-2:hover {
+    transform: scale(0.8);      /*nhỏ = 0.8 ban đầu*/
+}
+
+.box-3:hover {
+    transform: rotate(30deg);      
+}
+/***   thử thêm 1 số values khác   ***/

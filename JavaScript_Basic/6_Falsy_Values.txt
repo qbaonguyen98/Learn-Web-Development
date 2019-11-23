@@ -1,0 +1,8 @@
+
+Falsy có thể gọi là những giá trị "không mong muốn" của các datatype (nói vậy cho dễ nhớ):
+
+	- Boolean:	false
+	- Number:	0 + NaN
+	- String:	''
+	- null:		null
+	- undefined:	undefined

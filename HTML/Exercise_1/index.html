@@ -1,0 +1,44 @@
+<!--
+    Bài này có gì hot:
+        - cách thêm Attribute vào element
+        - cách dùng <a></a> tag để thêm link vào HTML
+-->
+<!DOCTYPE html>
+<!-- ĐỀ:
+        - Sử dụng getElementsByTagName() để lấy ra danh sách các <p> có class là 'foo'
+        - Lặp qua các phần tử và thay đổi nội dung của từng phần tử bằng cách append (thêm vào cuối) một đường link tới coders.tokyo site
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise 1</title>
+</head>
+<body>
+    <h1>Hello !!!</h1>
+    <p class="foo">Today is a good day! </p>
+    <p class="foo">Let's go swimming </p>
+    <p>That's a good idea. </p>
+    <div>
+        <button onclick="addLinks()">Click to add links</button>    <!--để onclick trong html thì khó maintain code
+                                                                        ngta cũng tránh để JS trong HTML-->
+    </div>
+      
+    <script>
+            function addLinks(){
+                var paragraphs =  document.getElementsByTagName('p');
+                var foos = [];
+                for (var paragraph of paragraphs){
+                    if (paragraph.className === 'foo'){
+                        foos.push(paragraph);
+                    }
+                }
+                for (var foo of foos){
+                    console.log(foo);
+                    foo.innerHTML += "<a href=\"https://school.coders.tokyo/\">Coders Tokyo</a>";
+                }
+            }
+    </script>
+</body>
+</html>

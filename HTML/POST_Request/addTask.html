@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Task</title>
+</head>
+<body>
+    <input id="addNewTask" type="text" placeholder="Enter new task ...">
+    <button id="addBtn">Add</button>
+    <!------------------------------------------------------------------------------->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var addBtn = document.getElementById('addBtn');
+        var input = document.getElementById('addNewTask');
+
+        addBtn.addEventListener('click', addNewtask);
+        input.addEventListener('keyup', onType);
+
+        input.value = sessionStorage.getItem('draft');
+
+        function onType(){
+            sessionStorage.setItem('draft', input.value);
+        }
+
+        function addNewtask(){
+            if (input.value === ''){
+                alert('Empty task !!!');
+            } else {
+                // post input value
+                var newItem = {
+                    content: input.value
+                };
+                axios.post('http://localhost:3001/todos', newItem)
+                .then(function(){
+                    // clear input and sessionStorage
+                    input.value = '';
+                    sessionStorage.removeItem('draft');
+                    // return to Home page 
+                    window.location.href = './';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;         /* Tất cả elements trong wrapper sẽ xếp lần lượt vào các cột 30%, 70% 
+                                            (từ trái qua, từ trên xuống) */
+}
+
+.header, .footer {
+    grid-column: 1/3;         /* từ đường giới hạn cột đầu tiên đến đường giới hạn cột thứ 3
+                                        => chiếm 2 cột
+                                    (kiểu như trên cây thước có 3 vạch nhưng trong đó có 2 đoạn)     */
+}
+
+/* sau khi code xong layout, chỉ cần copy code html, css của các component và đặt vào đúng chỗ */

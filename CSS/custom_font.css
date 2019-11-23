@@ -1,0 +1,12 @@
+/*
+    - font-family:  font1, font2, ... (nếu browser thấy font1 không có trong hệ thống, nó sẽ thử tiếp font sau
+                                        nếu không có hết thì browser sẽ tự để font mặc định nào đó)
+
+    - font-style:   normal | italic 
+
+    - font-size:    18px
+
+    - font-weight:  normal | bold | 400 | 600 ...
+
+NOTES: cách import font từ google fonts:    https://jsfiddle.net/reusnguyen1199/bkx7ygr5/5/
+*/

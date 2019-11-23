@@ -1,0 +1,32 @@
+/* Cú pháp BORDER:
+
+    - border-width: 1px     (ngoài ra còn có border-top-width, border-right-width ...)
+
+    - border-style: solid | dotted | dashed         (cũng tự như trên, có thể chèn hướng vào giữa)
+
+    - border-color: red             (cũng tự như trên, có thể chèn hướng vào giữa)
+
+    - border-radius: 4px
+
+CÁCH VIẾT TẮT:
+
+    - border: width style color
+    
+*/
+.header {
+    padding: 20px;
+    margin: 5px;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(35,27,181,1) 0%, rgba(30,96,215,1) 32%, rgba(0,212,255,1) 100%);
+    color: orange;
+}
+/* cú pháp BACKGROUND COLOR     (trong một khối thì nó áp dụng cho content và padding)
+
+                                (nhắc lại xíu: vùng margin sẽ nằm ngoài cùng, đến border, đến padding, đến content)
+
+    - background-color: color;
+    - background-color: transparent;
+    - background-color: gradient;           => xem useful link, có web giúp chọn style và cung cấp cú pháp
+*/
+

@@ -1,0 +1,56 @@
+/* cú pháp một số background properties:    (dấu * là default)
+
+    - background-image: url(...)
+    - background-repeat: repeat-x | repeat-y | no-repeat | repeat* ...
+    - background-size: % | contain | cover | auto* ...                  
+
+        contain: ảnh fit vào đúng kích thước khung, ví dụ khung cao bằng ảnh, nhưng dài gấp đôi, thì ảnh nằm 1 bên
+        cover: ảnh bao trọn khung, nếu ảnh quá lớn thì sẽ chỉ lấy 1 phần
+
+    - background-position: x y | center         (y > 0 thì ảnh bị dịch xuống dưới)
+    - background-attachment: scroll* | fixed
+
+*/
+
+body {
+    background-color: #ABC3DF;
+    font-family: sans-serif;
+}
+
+.list-item {
+    color: orange;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 50px;
+    margin-bottom: 8px;             /*thông thường ngta chỉ dùng margin bottom*/
+    border-radius: 9px;
+    background-color: teal;
+}
+
+.list-item-gradient {
+    color: rgb(255, 60, 0);
+    background: rgb(0,255,226);
+    background: linear-gradient(90deg, rgba(0,255,226,1) 0%, rgba(30,155,215,1) 79%, rgba(27,102,181,1) 100%);
+}
+
+.list-item-pattern {
+    background-image: url(./abstract_pattern.jpg);
+    background-size: 10%;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
+.list-item-image {
+    background-image: url(./paddle_field.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.list-item-parallax {
+    background-image: url(./paddle_field.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}

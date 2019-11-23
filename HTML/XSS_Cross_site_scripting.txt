@@ -1,0 +1,2 @@
+cơ chế lọc ra các tag html, thường là <script> khi user cố tình nhập vào input chứa những script đó,
+nhằm mục đích chạy 1 đoạn chương trình nào đó 

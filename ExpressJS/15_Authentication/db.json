@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "name": "Quoc Bao",
+      "phone": "0794939773",
+      "id": "Cf5HDIUj",
+      "email": "reusnguyen@outlook.com",
+      "password": "123456"
+    },
+    {
+      "name": "Marco",
+      "phone": "987987978",
+      "id": "x-h6stl5",
+      "email": "quocbaonguyen100898@gmail.com",
+      "password": "123456"
+    },
+    {
+      "name": "Vu cho dien",
+      "phone": "981273981t235",
+      "id": "HiN32Z72"
+    }
+  ]
+}

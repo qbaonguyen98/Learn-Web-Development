@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link {
+    text-decoration: none;
+    color: #000;
+}
+
+.menu {
+    display: flex;
+    padding: 0px;       /*bỏ padding mặc định của list*/
+    list-style: none;
+}
+
+.menu > li > a {
+    padding: 8px 16px;
+}
+
+.menu a:hover {
+    background-color: rgb(3, 86, 92);
+    color: #fff;
+}
+
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu {
+    padding: 0px;       /*bỏ padding mặc định của list*/
+    list-style: none;
+    position: absolute; /* tách element này ra khỏi element chứa nó (nằm ngoài block của element chứa nó)
+                           thử comment để thấy cái submenu nằm trong block của <li>About</li>*/
+    display: none;
+    left: 0px;
+    top: 100%;
+    background-color: rgb(3, 86, 92);
+    color: #fff;
+}
+
+.sub-menu li {
+    padding: 8px 16px;
+}

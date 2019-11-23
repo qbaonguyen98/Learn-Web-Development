@@ -1,0 +1,7 @@
+
+Cách tạo nodejs project và thêm community module vào project
+
+- lệnh tạo project: 	npm init
+- cài modules:		npm install module_name --save
+
+chi tiết xem thêm trong folder npmTest

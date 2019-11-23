@@ -1,0 +1,150 @@
+/*
+    Media query: phục vụ cho mục tiêu Responsive Web
+
+    Thường code CSS sẽ được viết cho Mobile sau đó dùng @media để chỉnh lại cho Desktop     (Mobile First)
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ddd;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    height: 150px;
+    background-color: #368F8B;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NAVIGATION BAR */    
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    background-color: #000F08;
+}
+
+.nav-bar a {
+    padding: 12px 16px;
+    color: whitesmoke;
+    transition: all 0.3s;
+}
+
+.nav-bar a:hover {
+    background-color: #2C302E;
+    color: white;
+}
+
+/* CONTENT */
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* side content */
+.content .side {
+    background-color: #fff;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 10px 5px 0 5px;
+}
+
+.content .side .avatar {
+    width: 200px;
+    height: 200px;
+    background-image: url(./images/avatar.jpg);
+    background-size: cover;
+    background-position: center;
+    align-self: center;
+}
+
+.content .side .contact {
+    display: flex;
+}
+
+.content .side .contact a {
+    width: 36px;
+    height: 36px;
+    background-position: center;
+    background-size: cover;
+    margin: 0px 10px 0px 0px;
+}
+
+.content .side .contact .fb {
+    background-image: url(./images/facebook_icon.png);
+}  
+.content .side .contact .insta {
+    background-image: url(./images/instagram_icon.png);
+} 
+.content .side .contact .skype {
+    background-image: url(./images/skype_icon.png);
+} 
+
+/* main content */
+.content .main {
+    background-color: #fff;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 10px 5px 0 5px;
+}
+
+.content .main .post {
+    display: flex;
+    flex-direction: column;
+}
+
+.content .main .cover-img {
+    width: auto;
+    height: 300px;
+    justify-self: center;
+    background-position: center;
+    background-size: cover;
+}
+
+.content .main .post-1 .cover-img {
+    background-image: url(./images/saigon_cover.jpg);
+}
+.content .main .post-2 .cover-img {
+    background-image: url(./images/software_engineering_cover.jpg);
+}
+.content .main .post-3 .cover-img {
+    background-image: url(./images/javascript_cover.jpg);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: #225560;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 80%;
+}
+
+/* Media Query for Responsive web */
+@media (min-width: 600px){
+    .nav-bar, .content {
+        flex-direction: row;
+    }
+    .content .side {
+        width: 25%;
+    }
+    .content .main {
+        width: 75%;
+    }
+}

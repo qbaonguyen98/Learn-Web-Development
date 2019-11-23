@@ -1,0 +1,5 @@
+module này giúp khi chúng ta thay đổi code thì browser tự thay đổi theo luôn, không cần reload
+
+npm install -g live-server
+
+> live-server

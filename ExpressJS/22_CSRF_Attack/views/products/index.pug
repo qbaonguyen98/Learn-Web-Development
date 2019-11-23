@@ -1,0 +1,52 @@
+extends ../layouts/defaultLayout
+
+block content
+    h1 Products
+
+    .d-flex.align-items-center
+        form.d-flex.ml-auto(action="/products/search" method="GET")
+            input.form-control.mr-2(type="text" name="name" placeholder="Enter product name" id="productSearch")
+            button.btn.btn-primary Search
+    
+    .row
+        each product in products
+            //- for responsive page
+            .col-sm-6.col-md-4.col-lg-3.d-flex.align-items-stretch
+                .card.mb-3.custom-card
+                    img.card-img-top(src= product.image)
+                    .card-body.d-flex.flex-column.justify-content-between
+                        h5.card-title= product.name
+                        p.card-text= product.description
+                        div
+                            h6.font-weight-bold= product.price
+                            a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
+    
+    .d-flex.align-items-center
+        .ml-auto
+            nav(aria-label='...')
+                ul.pagination(id="pagination-nav")
+
+                    if (renderPage === 1)
+                        li.page-item.disabled
+                            a.page-link(href='#' id="previous-btn" tabindex='-1' aria-disabled="true") Previous
+                        li.page-item.active
+                            a.page-link(href="/products?page=1") 1
+                        li.page-item
+                            a.page-link(href="/products?page=2") 2
+                            span.sr-only (current)
+                        li.page-item
+                            a.page-link(href="/products?page=3") 3
+                        li.page-item
+                            a.page-link(href='#' id="next-btn") Next
+                    else
+                        li.page-item
+                            a.page-link(href="/products?page="+(renderPage-1) id="previous-btn" tabindex='-1' aria-disabled="true") Previous
+                        li.page-item
+                            a.page-link(href="/products?page="+(renderPage-1))= (renderPage - 1).toString()
+                        li.page-item.active
+                            a.page-link(href="/products?page="+renderPage id="current-product-page")= (renderPage).toString()
+                            span.sr-only (current)
+                        li.page-item
+                            a.page-link(href="/products?page="+(renderPage+1))= (renderPage + 1).toString()
+                        li.page-item
+                            a.page-link(href='#' id="next-btn") Next

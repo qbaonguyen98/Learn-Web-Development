@@ -1,0 +1,2 @@
+- scope is function_based:	liên quan đến khả năng access đến biến của 1 function
+- context is object-based:	là giá trị của "this" keyword trong sử dụng trong object

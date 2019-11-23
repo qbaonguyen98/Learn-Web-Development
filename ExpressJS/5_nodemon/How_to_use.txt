@@ -1,0 +1,10 @@
+> npm install --save-dev nodemon
+
+change the package.json:
+
+"scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+},
+
+> npm start

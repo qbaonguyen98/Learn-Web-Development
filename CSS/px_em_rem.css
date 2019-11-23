@@ -1,0 +1,11 @@
+/*
+    Phân biệt 3 loại value: px, em, rem
+
+    - px: cố định, user có đổi kích thước hiển thị thì nó vẫn k đổi
+
+    - em: 1 em = kích thước của parent element => có thể thay đổi
+
+    - rem: 1 rem = kích thước của root element - chính là cả HTML Document => thay đổi tương ứng khi user thay đổi kích thước hiển thị trên web
+
+    >>> nên dùng rem, em để đảm bảo responsive web page (vd điển hình là trong Bootstrap hầu hết toàn dùng rem, em)
+*/

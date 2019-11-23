@@ -1,0 +1,54 @@
+<!--
+    - Cú pháp của pseudo class: 
+    
+        selector:pseudo-class {
+            property:value;
+        }
+    
+    - Cú pháp của pseudo element:
+        
+        selector::pseudo-element {
+            property:value;
+        }
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pseudo class and pseudo element</title>
+
+    <link href="./styles.css"
+    rel="stylesheet">
+</head>
+<body>
+    <!-- Example for pseudo classes -->
+    <a class="default-link" href="#defaultlink">This is a link</a>
+    <div class="special-thing" style="color: orange;"> 
+        Mouse over to see something special
+        <p class="tada">Tada! Here I am!</p>
+    </div>
+
+    <!-- Example for pseudo elements -->
+    <p class="color-first-line">
+        You can use the ::first-line pseudo-element to add a special effect to the first line of a text. 
+        Some more text. And even more, and more, and more, and more, and more, and more, and more, and more, 
+        and more, and more, and more, and more.
+    </p>
+
+    <p class="color-first-letter">
+        You can use the ::first-line pseudo-element to add a special effect to the first line of a text. 
+        Some more text. And even more, and more, and more, and more, and more, and more, and more, and more, 
+        and more, and more, and more, and more.
+    </p>
+        <!-- ::before and ::after-->
+    <h3 class="image-prefix">
+        ::before example
+    </h3>
+
+    <h3 class="image-postfix">
+        ::after example
+    </h3>
+</body>
+</html>

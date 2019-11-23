@@ -1,0 +1,6 @@
+{
+    "todos": [
+        {"id": 1, "content": "Do Homework"},
+        {"id": 2, "content": "Learn HTML"}
+    ]
+}

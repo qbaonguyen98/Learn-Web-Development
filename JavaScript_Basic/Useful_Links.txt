@@ -1,0 +1,14 @@
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+https://github.com/sindresorhus/awesome-nodejs#resources
+
+https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+https://hackernoon.com/smarter-javascript-timeouts-24308f3be5ab
+
+https://momentjs.com/docs/#/use-it/

@@ -1,0 +1,17 @@
+extends ../layouts/defaultLayout
+
+block content
+	h1 Users
+
+	form(action="/users/search", method="GET", class="form-group")
+		input(type="text", name="name", placeholder="Enter user name", id="userSearch", class="form-control mb-2")
+		button(class="btn btn-primary") Search
+
+	a(href="/users/create") Create new user
+
+	ul
+		each user in users
+			li
+				span=user.name
+				span &nbsp; 
+				a(href="/users/" + user.id) View

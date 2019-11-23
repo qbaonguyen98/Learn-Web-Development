@@ -1,0 +1,73 @@
+<!--
+    Bài này có gì hot:
+        - cách tạo submit form
+        - sử dụng method createElement() để tạo ra HTML element mới
+        - sử dụng property textContent để gán nội dung cho element
+        - sử dụng method appendChild() để thêm 1 element con vào 1 element nào đó
+        - sử dụng property children để access 1 element con nào đó, nếu k có sẽ là undefined
+        - sử dụng method remove() để xóa đi 1 element
+        - cách sử dụng innerHTML
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLElement</title>
+</head>
+<body>
+    <h1>TO DO LIST</h1>
+    <div>
+        <ul style="list-style-type: square" id="toDoList">
+            <li class="task">Read Z-Wave document</li>
+            <li class="task">Have an eye test<span></span></li>
+            <li class="task">Learn HTML<span></span></li>
+        </ul>
+        <p id="emptyAlert" style="color: red;"></p>
+    </div>
+    <div>
+        <p>
+            <button onclick="createForm()">Click here</button>          <!--để onclick trong html thì khó maintain code
+                                                                        ngta cũng tránh để JS trong HTML-->
+            to add a new task
+        </p>
+        <p id="newTask"></p>
+        <p>
+            <button onclick="removeLastTask()">Click here</button>
+            to remove the last task
+        </p>
+    </div>
+
+    <script>
+        function createForm(){
+            document.getElementById('newTask').innerHTML = 
+                            '                                                                   \
+                            <form class="newTaskForm">                                          \
+                                Add new task: <input type="text">                               \
+                                <input  type="button" onclick="addNewTask()" value="Add">       \
+                            </form>                                                             \
+                            ';
+        }
+        function addNewTask(){
+            document.getElementById('emptyAlert').innerHTML = '';   // remove alert (if exist)
+
+            var newTask = document.getElementsByClassName('newTaskForm')[0].children[0].value;
+            var newListItem = document.createElement('li');     // create list item
+            newListItem.textContent = newTask;                  // assign value to new list item
+
+            document.getElementById('toDoList').appendChild(newListItem);     
+            document.getElementsByClassName('newTaskForm')[0].innerHTML = '';   // delete form
+        }
+        function removeLastTask(){
+            var toToList = document.getElementById('toDoList');
+            var lastTask = toToList.children[toToList.children.length - 1];
+            if(lastTask !== undefined){
+                lastTask.remove();
+            } else{
+                document.getElementById('emptyAlert').innerHTML = 'Empty List';
+            }
+        }
+    </script>
+</body>
+</html>

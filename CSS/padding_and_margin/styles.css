@@ -1,0 +1,29 @@
+/*
+    Các cú pháp để tạo padding:     (value tính theo pixel: 10px, ...)
+
+        - padding-top:
+        - padding-right:
+        - padding-left:
+        - padding-bottom:
+
+        - padding: top right bottom left        (chiều kim đồng hồ)
+        - padding: top left-right bottom        (3 tham số)
+        - padding: top-bottom left-right        (2 tham số)
+        - padding: all
+*/
+.header {
+    color: darkcyan;    
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 40px;                /*use inspect element to see padding (green area)*/
+    padding-top: 16px;
+    padding-bottom: 16px
+}
+.content {
+    color: brown;
+    padding: 40px 30px 20px 10px
+}
+
+/*
+    Cú pháp của margin của y chang như padding, khi inspect thì nó là vùng màu cam
+*/

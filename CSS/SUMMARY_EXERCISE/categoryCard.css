@@ -1,0 +1,34 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-start {
+    justify-content: flex-start;
+}
+.flex-alignCenter {
+    align-items: center;
+}
+  
+.card {
+    height: 50px;
+    min-height: 50px;
+    border: 1px solid none;
+    box-shadow: 0 0 2px 0 rgba(46,62, 72, 0.12), 0 2px 4px 0 rgba(46, 62, 72, 0.12);
+    border-radius: 8px 8px 8px 8px;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.card:hover {
+    box-shadow: 0 0 4px 0 rgba(46, 62, 72, 0.12), 0 4px 12px 0 rgba(46, 62, 72, 0.12);
+    transform: translate(0px, -3px);
+}
+.card-cover {
+    height: 50px;
+    width: calc(88.8889px);
+    border-radius: 8px 0px 0px 8px;
+}
+.card-title {
+    padding-left: 16px;
+}
+
+  

@@ -1,0 +1,24 @@
+extends ../layouts/defaultLayout
+
+block content
+	h1
+		span.mr-2 Users
+		a(href="/users/create").btn.btn-primary New
+
+	div.d-flex.align-items-center
+		form.d-flex.ml-auto(action="/users/search" method="GET")
+			input.form-control.mr-2(type="text" name="name" placeholder="Enter user name" id="userSearch")
+			button.btn.btn-primary Search
+
+	table.table
+		tr
+			th Name
+			th Phone
+			th Action
+
+		each user in users
+			tr
+				td= user.name
+				td= user.phone
+				td
+					a.btn.btn-light(href="/users/" + user.id) View

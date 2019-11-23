@@ -1,0 +1,17 @@
+extends ../layouts/defaultLayout
+
+block content
+    h1 Your Cart
+
+    .row
+        each orderedProduct in orderedProducts
+            //- for responsive page
+            .col-sm-6.col-md-4.col-lg-3.d-flex.align-items-stretch
+                .card.mb-3.custom-card
+                    img.card-img-top(src= orderedProduct.image)
+                    .card-body.d-flex.flex-column.justify-content-between
+                        h5.card-title= orderedProduct.name
+                        p.card-text= orderedProduct.description
+                        .d-flex.flex-row.justify-content-between.align-items-center
+                            h6.font-weight-bold= orderedProduct.price
+                            h5.font-weight-bold(style='color: #D8572A')= orderedProduct.quantity

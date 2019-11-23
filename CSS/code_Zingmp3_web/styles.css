@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h2 {
+    background-color: #eee
+}
+/************************** ELEMENT 1 **********************************/
+.chart-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.chart-item .sequence {
+    font-size: 20px;
+    padding: 0 12px;         /* trên dưới 0, trái phải 8 */
+}
+
+.chart-item .info {
+    font-size: 15px;
+    flex-grow: 1;
+}
+.chart-item .title {
+    margin-bottom: 8px;
+}
+.chart-item .singer {
+    font-size: 13px;
+    color: #888;
+}
+.chart-item .view-count {
+    font-size: 13px;
+    color: #888;
+}
+/************************** ELEMENT 2 **********************************/
+.song-card {
+    display: flex;
+    height: 100px;
+    width: 250px;
+    font-family: sans-serif;
+}
+
+.song-card .album-cover {
+    flex-basis: 40%;
+    background-image: url(./x_cover.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.album-cover .overlay {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(50,47,47,1) 0%, rgba(163,163,163,0) 100%, rgba(149,147,147,1) 100%);
+    display: flex;
+    align-items: flex-end;
+    font-size: 150%;
+    color: white;
+    padding: 2px 8px;
+    box-sizing: border-box;
+}
+
+.song-card .song-info {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0px 0px 14px;
+}
+
+.song-info .title {
+    font-size: 15px;
+    padding-bottom: 8px;
+}
+
+.song-info .singer {
+    font-size: 13px;
+    color: #888;
+    padding-bottom: 8px;
+}
+
+.song-info .view-count {
+    font-size: 13px;
+    color: #888;
+}
+/************************** ELEMENT 3 **********************************/
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.white { color: white; }
+
+.album-card {
+    height: 150px;
+    width: 150px;
+    background-image: url(./attention_cover.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.album-card .overlay {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.album-card .overlay:hover {
+    opacity: 1;
+}

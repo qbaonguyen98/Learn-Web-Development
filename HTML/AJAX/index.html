@@ -1,0 +1,74 @@
+<!--
+    Bài này có gì hot ?
+        - giới thiệu sơ về AJAX, giúp lấy data hoặc mấy cái html, css, js về ở background => nhấn vô link nhưng
+        không reload lại trang mới
+        - giới thiệu về API server, kiểu 1 server sẽ làm nhiệm vụ phụ gì đó, ví dụ lưu giữ và trả về data khi cần
+        - sử dụng module json-server 
+        - sử dụng module axios để lấy response từ api server
+        - document.write k nên sử dụng nhiều lần
+        - dùng fetch tốc độ nhanh hơn axios
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+</head>
+<body>
+    <h3>localStorage chỉ lưu trên 1 browser (browser khác không truy cập được)
+        và nó có giới hạn
+        => dùng một API Server đơn giản để lưu data (test lại thử = cách mở cùng 1 link cả Firefox và Chrome)
+    </h3>
+    <hr>
+    <h1>To Do List</h1>
+    <div>
+        <ul id="toDoList"></ul>
+    </div>
+    <hr>
+    <!-- EXERCISE 1: Dùng axios, fetch và document.write()-->
+
+   
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>       <!-- add axios-->
+    <script>
+        // define api server url
+        var url = 'http://localhost:3001/todos';
+
+        // get data from api server
+        axios.get(url)
+        .then(function(res){
+            var loadedData = res.data;
+            // first render
+            render(loadedData);
+        });
+        // render function
+        function render(list){
+            var htmlList = document.getElementById('toDoList');
+            var content = list.map(function(item){
+                return '<li>' + item.content + '</li>';
+            });
+            htmlList.innerHTML = content.join('');
+        }
+        ///////////////////////////////////   EXERCISE 1  /////////////////////////////////////
+        var exercise1 = document.getElementById('exercise1');
+        axios.get('https://randomuser.me/api/')
+        .then(function(res){
+            document.open();
+            document.write('<h3>EXERCISE 1: use axios</h3>');
+            document.write(res.data);
+            document.close();
+        });
+
+        fetch('https://randomuser.me/api/')
+        .then(function(res){
+            document.open();
+            document.write('<h3>EXERCISE 2: use fetch (built-in)</h3>');
+            document.write(res.data);
+            document.close();
+        })
+        ///////////////////////////////////   EXERCISE 2  /////////////////////////////////////
+    </script>
+</body>
+</html>

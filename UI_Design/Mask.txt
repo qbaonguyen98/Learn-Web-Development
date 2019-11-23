@@ -1,0 +1,3 @@
+Là một kĩ thuật dùng để lồng 1 ảnh vào trong 1 khối, và không được vượt ra khỏi khối đó
+
+Cách tạo mask trong XD: để item ảnh dưới 1 khối (đặt tên là Mask cho tiện), chọn 2 hai item này, right click => mask ...
