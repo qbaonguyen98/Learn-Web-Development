@@ -20,13 +20,13 @@ $ db.createCollection(name, [options])
 _While inserting the document, MongoDB first checks size field of capped collection, then it checks max field_
 
 #### Example
-$ db.createCollection("myCollection")
+    $ db.createCollection("myCollection")
 
 #### Show all collections in database
-$ show collections
+    $ show collections
 
 #### Another example
-$ db.createCollection("myCol", { capped : true, autoIndexId : true, size : 6142800, max : 10000 } )
+    $ db.createCollection("myCol", { capped : true, autoIndexId : true, size : 6142800, max : 10000 } )
 
 _In MongoDB, you don't need to create collection. MongoDB creates collection automatically, when you insert some document_
 
