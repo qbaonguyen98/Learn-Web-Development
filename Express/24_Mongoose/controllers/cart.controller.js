@@ -1,4 +1,4 @@
-var db = require('../db');
+var 
 
 module.exports.addProduct = function(req, res, next) {
     var productId = req.params.productId;       // get the productId in query parameters

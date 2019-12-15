@@ -1,0 +1,37 @@
+html
+    head
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+        link(rel="stylesheet" href="styles.css")
+    body
+        .wrapper.clearfix
+            .panel
+                h1.title.text-center.font-weight-bold STM Scale
+                br
+                .container
+                    .row
+                        .option-panel.col
+                            h2.text-center Options
+                            form(action="/range" method="GET")
+                                .form-group
+                                    label Choose range
+                                    select(name="range").form-control
+                                        option(value="20") 20mV
+                                        option(value="40") 40mV
+                                    button.btn.btn-primary.mt-2(type="submit" onclick="changeScale()") OK
+                            br
+                            button.btn.btn-primary(onclick="calib()") Calibrate
+
+                        .result-panel.col
+                            h2.text-center Result
+                            .d-flex.justify-content-center.align-items-center(style="height: 100%")
+                                .value-box
+                                    .display-value.text-center(id="display-value") 0
+                                    .display-unit.text-center(id="display-unit") gram
+
+        p.temp(id="temp") 20
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="script.js")
+
+
+

@@ -19,7 +19,13 @@ var csrf = require('csurf');
 
 // SETUP database 
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URL);
+mongoose.connect(process.env.MONGODB_URL, {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false,
+	useUnifiedTopology: true
+}).then(con => console.log('DB Connection successful!'));
+//////////////////
 
 var userRoutes = require('./routes/users.route');
 var authRoutes = require('./routes/auth.route');

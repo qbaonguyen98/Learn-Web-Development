@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.clearfix::after {
+    content: "";        /* to insert sth after the content of element*/
+    display: table;
+    clear: both;        /* No floating elements allowed on either the left or the right side */
+}
+
+body {
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4));
+    background-size: cover;
+    background-position: center;
+    font-weight: 300;
+    position: relative;     /* is positioned relative to its normal position. Then use the top, right, left, bottom properties to adjust new position*/
+    height: 100vh;
+    color: #555;
+}
+
+.wrapper {
+    width: 1000px;
+    position: absolute;     /* is positioned relative to the nearest positioned ancestor */
+    top: 50%;
+    left: 50%;              /* set the left edge position in % of containing element */
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid none;
+    border-radius: 8px 8px 8px 8px;
+    overflow: hidden;
+}
+
+.panel {
+    width: 100%;
+    /* float: left; */
+    height: 600px;
+    padding: 60px;
+}
+
+.value-box {
+    background-color: rgb(51, 149, 247);
+    padding: 36px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.display-value {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.unit {
+    color: black;
+}
+
+.temp {
+    display: none;
+}
