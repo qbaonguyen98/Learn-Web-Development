@@ -7,3 +7,5 @@
 - If no key is specified, React will present a warning and use the array index as a key by default. 
 
 - Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+
+- Should NOT use index as key: https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318

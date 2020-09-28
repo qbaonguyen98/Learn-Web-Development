@@ -5,7 +5,7 @@
 /*
             arr.filter(function(item){
                 //code to filter
-                return x;    // true of false
+                return x;    // true or false
             });
 */
 
